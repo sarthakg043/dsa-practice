@@ -5,7 +5,8 @@ This repository contains my solutions to various Data Structures and Algorithms 
 ## Repository Structure
 
 - [NeetCode Blind 75](/NeetCode%20Blind%2075/README.md) - Solutions to the NeetCode Blind 75 list of interview questions
-- [Frontend](/frontend/README.md) - Interactive UI to track progress and visualize statistics
+- [Frontend](../frontend/README.md) - Interactive UI to track progress and visualize statistics
+- [Backend](../backend/Readme.md)
 
 ## Interactive Dashboard
 
@@ -23,13 +24,6 @@ To launch the dashboard:
 ```
 
 Then open your browser to http://localhost:5173
-
-## Vercel Deployment
-
-The dashboard is fully deployable to Vercel with serverless API support.
-
-- See [VERCEL_DEPLOYMENT.md](VERCEL_DEPLOYMENT.md) for deployment instructions
-- See [TESTING_GUIDE.md](TESTING_GUIDE.md) for local testing and troubleshooting
 
 ## Problem Sets
 
