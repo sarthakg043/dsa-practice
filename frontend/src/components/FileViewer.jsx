@@ -45,7 +45,7 @@ export function FileViewer() {
     if (!content) return null;
     
     return (
-      <div className="prose max-w-none dark:prose-invert">
+      <div className="prose max-w-none dark:prose-invert dark:text-white">
         <ReactMarkdown
           remarkPlugins={[remarkGfm]}
           rehypePlugins={[rehypeHighlight]}
