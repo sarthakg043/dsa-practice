@@ -1,17 +1,29 @@
-import statisticsData from '../assets/statistics.json';
-import { apiPost } from './api-utils';
+import { apiGet, apiPost } from './api-utils';
 
-// In a real application, this would use an API to update the JSON file on the server
-// For this version, we'll keep it in memory and simulate persistence
-
-let cachedStatistics = { ...statisticsData };
+// Initialize an empty statistics object as cache
+let cachedStatistics = null;
 
 /**
- * Get the current statistics data
+ * Get the current statistics data from cache
  * @returns {Object} The statistics data
  */
 export const getStatistics = () => {
   return cachedStatistics;
+};
+
+/**
+ * Fetch statistics data from the server
+ * @returns {Promise<Object>} A promise that resolves to the statistics data
+ */
+export const fetchStatistics = async () => {
+  try {
+    const data = await apiGet('/api/statistics');
+    cachedStatistics = data;
+    return data;
+  } catch (error) {
+    console.error('Error fetching statistics from server:', error);
+    throw error;
+  }
 };
 
 /**
@@ -117,17 +129,11 @@ export const addProblem = (topic, problem) => {
 };
 
 /**
- * Manually refresh the statistics (simulating a server fetch)
+ * Manually refresh the statistics from the server
  * @returns {Promise<Object>} A promise that resolves to the statistics data
  */
 export const refreshStatistics = async () => {
-  // In a real app, we would fetch from the server
-  // For this version, we'll simulate a delay and return the cached data
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(cachedStatistics);
-    }, 500);
-  });
+  return await fetchStatistics();
 };
 
 /**
@@ -137,7 +143,12 @@ export const refreshStatistics = async () => {
  */
 const saveStatisticsToServer = async (stats) => {
   try {
-    return await apiPost('/api/statistics', stats);
+    const response = await apiPost('/api/statistics', stats);
+    if (response.success) {
+      // Update local cache after successful save
+      cachedStatistics = stats;
+    }
+    return response;
   } catch (error) {
     console.error('Error saving statistics to server:', error);
     return { success: false, error: error.message };

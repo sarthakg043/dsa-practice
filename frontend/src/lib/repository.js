@@ -6,7 +6,7 @@ import glob from 'fast-glob';
 import { marked } from 'marked';
 
 // Base path to the DSA directory
-const BASE_PATH = path.resolve('/Users/sarthakgupta/Developer/DSA');
+const BASE_PATH = path.resolve('/Users/sarthakgupta/Developer/DSA/Data');
 
 // Function to read a file
 export const readFile = (filePath) => {

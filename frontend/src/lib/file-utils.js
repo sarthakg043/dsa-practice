@@ -7,7 +7,7 @@ export function useFilePathToUrl() {
 
   useEffect(() => {
     // Get the base URL of our backend API
-    const apiBaseUrl = 'http://localhost:3001';
+    const apiBaseUrl = 'http://localhost:3000';
     setBaseUrl(apiBaseUrl);
     setIsLoading(false);
   }, []);

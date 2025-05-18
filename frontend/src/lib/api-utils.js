@@ -26,8 +26,8 @@ export const apiGet = async (endpoint, params = {}, options = {}) => {
       // Use absolute URL in development
       let url = endpoint;
       if (!url.startsWith('http')) {
-        // Use localhost:3001 directly instead of relying on proxy
-        url = `http://localhost:3001${endpoint}${queryString}`;
+        // Use localhost:3000 directly instead of relying on proxy
+        url = `http://localhost:3000${endpoint}${queryString}`;
       } else {
         url = `${url}${queryString}`;
       }
@@ -78,8 +78,8 @@ export const apiPost = async (endpoint, data) => {
     // Use absolute URL in development
     let url = endpoint;
     if (!url.startsWith('http')) {
-      // Use localhost:3001 directly instead of relying on proxy
-      url = `http://localhost:3001${endpoint}`;
+      // Use localhost:3000 directly instead of relying on proxy
+      url = `http://localhost:3000${endpoint}`;
     }
     
     console.log(`🚀 API POST request to: ${url}`);

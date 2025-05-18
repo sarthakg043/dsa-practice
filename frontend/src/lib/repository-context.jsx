@@ -1,5 +1,5 @@
 import { createContext, useContext, useState, useEffect } from 'react';
-import { getStatistics, refreshStatistics } from './statistics-service';
+import { getStatistics, fetchStatistics, refreshStatistics } from './statistics-service';
 import { apiGet } from './api-utils';
 
 // Create context for the repository data
@@ -56,17 +56,23 @@ export function RepositoryProvider({ children }) {
   };
   
   // Function to fetch repository statistics
-  const fetchStatistics = async () => {
+  const fetchRepoStatistics = async () => {
     try {
       setLoading(true);
-      // Use the statistics service instead of API call
-      const data = await refreshStatistics();
+      setError(null); // Clear any previous errors
+      
+      console.log('📊 Fetching repository statistics...');
+      const data = await fetchStatistics();
+      console.log('📊 Repository statistics fetched successfully');
+      
       setStatistics(data);
       setLoading(false);
+      return data;
     } catch (error) {
-      console.error('Error fetching repository statistics:', error);
-      setError(error.message);
+      console.error('❌ Error fetching repository statistics:', error);
+      setError(error.message || 'Failed to load repository statistics');
       setLoading(false);
+      return null;
     }
   };
   
@@ -99,7 +105,7 @@ export function RepositoryProvider({ children }) {
   
   // Function to refresh data
   const refreshData = async () => {
-    await Promise.all([fetchRepoTree(), fetchStatistics()]);
+    await Promise.all([fetchRepoTree(), fetchRepoStatistics()]);
     if (selectedFile) {
       await fetchFileContent(selectedFile);
     }
@@ -107,15 +113,19 @@ export function RepositoryProvider({ children }) {
   
   // Initial data fetch
   useEffect(() => {
-    // Set initial statistics from the service
-    setStatistics(getStatistics());
-    
-    // Fetch the repo tree and file content if selected
+    // Fetch the repo tree and statistics
     (async () => {
+      // First attempt to get statistics from the API
+      await fetchRepoStatistics();
+      
+      // Then fetch the repo tree
       await fetchRepoTree();
+      
+      // Check if file should be loaded
       if (selectedFile) {
         await fetchFileContent(selectedFile);
       }
+      
       setLoading(false);
     })();
   }, []);
@@ -130,6 +140,7 @@ export function RepositoryProvider({ children }) {
     fileContent,
     selectFile,
     refreshData,
+    fetchRepoStatistics
   };
   
   return (

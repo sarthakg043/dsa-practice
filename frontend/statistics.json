@@ -1,0 +1,202 @@
+{
+  "totalProblems": 75,
+  "solvedProblems": 3,
+  "topicStats": [
+    {
+      "name": "Arrays & Hashing",
+      "total": 9,
+      "solved": 3
+    },
+    {
+      "name": "Two Pointers",
+      "total": 5,
+      "solved": 0
+    },
+    {
+      "name": "Sliding Window",
+      "total": 6,
+      "solved": 0
+    },
+    {
+      "name": "Stack",
+      "total": 1,
+      "solved": 0
+    },
+    {
+      "name": "Binary Search",
+      "total": 2,
+      "solved": 0
+    },
+    {
+      "name": "Linked List",
+      "total": 6,
+      "solved": 0
+    },
+    {
+      "name": "Trees",
+      "total": 8,
+      "solved": 0
+    },
+    {
+      "name": "Tries",
+      "total": 2,
+      "solved": 0
+    },
+    {
+      "name": "Heap / Priority Queue",
+      "total": 2,
+      "solved": 0
+    },
+    {
+      "name": "Backtracking",
+      "total": 6,
+      "solved": 0
+    },
+    {
+      "name": "Graphs",
+      "total": 5,
+      "solved": 0
+    },
+    {
+      "name": "Advanced Graphs",
+      "total": 4,
+      "solved": 0
+    },
+    {
+      "name": "Dynamic Programming",
+      "total": 10,
+      "solved": 0
+    },
+    {
+      "name": "Greedy",
+      "total": 2,
+      "solved": 0
+    },
+    {
+      "name": "Intervals",
+      "total": 4,
+      "solved": 0
+    },
+    {
+      "name": "Math & Geometry",
+      "total": 2,
+      "solved": 0
+    },
+    {
+      "name": "Bit Manipulation",
+      "total": 1,
+      "solved": 0
+    }
+  ],
+  "difficultyStats": {
+    "Easy": 25,
+    "Medium": 40,
+    "Hard": 10,
+    "Unknown": 0
+  },
+  "problemDetails": {
+    "Arrays & Hashing": [
+      {
+        "name": "Contains Duplicate",
+        "difficulty": "Easy",
+        "solved": true,
+        "link": "https://leetcode.com/problems/contains-duplicate/",
+        "solutionPath": "./contains_duplicate.md"
+      },
+      {
+        "name": "Valid Anagram",
+        "difficulty": "Easy",
+        "solved": true,
+        "link": "https://leetcode.com/problems/valid-anagram/",
+        "solutionPath": "./valid_anagram.md"
+      },
+      {
+        "name": "Two Sum",
+        "difficulty": "Easy",
+        "solved": true,
+        "link": "https://leetcode.com/problems/two-sum/",
+        "solutionPath": "./two_sum.py"
+      },
+      {
+        "name": "Group Anagrams",
+        "difficulty": "Medium",
+        "solved": false,
+        "link": "https://leetcode.com/problems/group-anagrams/",
+        "solutionPath": "./group_anagrams.py"
+      },
+      {
+        "name": "Top K Frequent Elements",
+        "difficulty": "Medium",
+        "solved": false,
+        "link": "https://leetcode.com/problems/top-k-frequent-elements/",
+        "solutionPath": "./top_k_frequent.py"
+      },
+      {
+        "name": "Product of Array Except Self",
+        "difficulty": "Medium",
+        "solved": false,
+        "link": "https://leetcode.com/problems/product-of-array-except-self/",
+        "solutionPath": "./product_except_self.py"
+      },
+      {
+        "name": "Valid Sudoku",
+        "difficulty": "Medium",
+        "solved": false,
+        "link": "https://leetcode.com/problems/valid-sudoku/",
+        "solutionPath": "./valid_sudoku.py"
+      },
+      {
+        "name": "Encode and Decode Strings",
+        "difficulty": "Medium",
+        "solved": false,
+        "link": "https://leetcode.com/problems/encode-and-decode-strings/",
+        "solutionPath": "./encode_decode_strings.py"
+      },
+      {
+        "name": "Longest Consecutive Sequence",
+        "difficulty": "Medium",
+        "solved": false,
+        "link": "https://leetcode.com/problems/longest-consecutive-sequence/",
+        "solutionPath": "./longest_consecutive.py"
+      }
+    ],
+    "Two Pointers": [
+      {
+        "name": "Valid Palindrome",
+        "difficulty": "Easy",
+        "solved": false,
+        "link": "https://leetcode.com/problems/valid-palindrome/",
+        "solutionPath": "./valid_palindrome.py"
+      },
+      {
+        "name": "3Sum",
+        "difficulty": "Medium",
+        "solved": false,
+        "link": "https://leetcode.com/problems/3sum/",
+        "solutionPath": "./3sum.py"
+      },
+      {
+        "name": "Container With Most Water",
+        "difficulty": "Medium",
+        "solved": false,
+        "link": "https://leetcode.com/problems/container-with-most-water/",
+        "solutionPath": "./container_most_water.py"
+      },
+      {
+        "name": "Trapping Rain Water",
+        "difficulty": "Hard",
+        "solved": false,
+        "link": "https://leetcode.com/problems/trapping-rain-water/",
+        "solutionPath": "./trapping_rain_water.py"
+      },
+      {
+        "name": "Two Sum II - Input array is sorted",
+        "difficulty": "Medium",
+        "solved": false,
+        "link": "https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/",
+        "solutionPath": "./two_sum_sorted.py"
+      }
+    ]
+  },
+  "lastUpdated": "2025-05-17T12:00:00.000Z"
+}

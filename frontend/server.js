@@ -10,7 +10,7 @@ import {
 } from './src/lib/repository.js';
 
 const app = express();
-const PORT = 3001;
+const PORT = 3000;
 
 // Enable CORS
 app.use(cors());
@@ -51,16 +51,28 @@ app.get('/api/file', async (req, res) => {
   }
 });
 
-// Start the server
-app.listen(PORT, () => {
-  console.log(`API server running on http://localhost:${PORT}`);
+// API endpoint to get statistics data
+app.get('/api/statistics', (req, res) => {
+  try {
+    const filePath = path.resolve('./statistics.json');
+    
+    if (!fs.existsSync(filePath)) {
+      return res.status(404).json({ error: 'Statistics file not found' });
+    }
+    
+    const statisticsData = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+    res.json(statisticsData);
+  } catch (error) {
+    console.error('Error reading statistics:', error);
+    res.status(500).json({ error: 'Failed to read statistics' });
+  }
 });
 
 // API endpoint to save statistics data
 app.post('/api/statistics', (req, res) => {
   try {
     const statisticsData = req.body;
-    const filePath = path.resolve('./src/assets/statistics.json');
+    const filePath = path.resolve('./statistics.json');
     
     fs.writeFileSync(filePath, JSON.stringify(statisticsData, null, 2), 'utf-8');
     
@@ -70,3 +82,18 @@ app.post('/api/statistics', (req, res) => {
     res.status(500).json({ error: 'Failed to save statistics' });
   }
 });
+
+
+// Start the server
+const server = app.listen(PORT, () => {
+  console.log(`API server running on http://localhost:${PORT}`);
+});
+
+// Add error handling for server issues
+server.on('error', (error) => {
+  console.error('Server failed to start:', error);
+  if (error.code === 'EADDRINUSE') {
+    console.error(`Port ${PORT} is already in use. Please try a different port.`);
+  }
+});
+

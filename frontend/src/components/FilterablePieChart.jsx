@@ -1,7 +1,8 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { useRepository } from '@/lib/repository-context';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer, Legend } from 'recharts';
+import { RefreshButton } from './RefreshButton';
 import {
   Select,
   SelectContent,
@@ -28,9 +29,17 @@ const COLORS = [
 ];
 
 export function FilterablePieChart() {
-  const { statistics, loading } = useRepository();
+  const { statistics, loading, fetchRepoStatistics } = useRepository();
   const [statusFilter, setStatusFilter] = useState('total'); // 'total', 'solved', 'unsolved'
   const [topicFilter, setTopicFilter] = useState('all'); // 'all' or specific topic name
+  
+  // Effect to refresh data when component mounts
+  useEffect(() => {
+    // Only attempt to fetch if we don't already have statistics
+    if (!statistics) {
+      fetchRepoStatistics();
+    }
+  }, [statistics, fetchRepoStatistics]);
   
   // Extract available topics from statistics
   const topics = useMemo(() => {
@@ -45,10 +54,13 @@ export function FilterablePieChart() {
     
     // If we don't have problem details, return basic difficulty stats
     if (!statistics.problemDetails) {
-      return Object.entries(statistics.difficultyStats || {}).map(([name, value]) => ({
-        name,
-        value: value || 0,
-      })).filter(item => item.value > 0);
+      // This handles the case when we only have basic stats
+      return Object.entries(statistics.difficultyStats || {})
+        .map(([name, value]) => ({
+          name,
+          value: value || 0,
+        }))
+        .filter(item => item.value > 0);
     }
     
     // Get problems based on topic filter
@@ -93,8 +105,9 @@ export function FilterablePieChart() {
   if (loading) {
     return (
       <Card>
-        <CardHeader className="pb-2">
+        <CardHeader className="pb-2 flex flex-row justify-between items-center">
           <CardTitle>Problems by Difficulty</CardTitle>
+          <RefreshButton showText={false} />
         </CardHeader>
         <CardContent className="flex justify-center items-center h-[250px]">
           <p className="text-gray-500">Loading statistics...</p>
@@ -107,8 +120,9 @@ export function FilterablePieChart() {
   if (!statistics || chartData.length === 0) {
     return (
       <Card>
-        <CardHeader className="pb-2">
+        <CardHeader className="pb-2 flex flex-row justify-between items-center">
           <CardTitle>Problems by Difficulty</CardTitle>
+          <RefreshButton showText={false} />
         </CardHeader>
         <CardContent>
           <div className="flex space-x-4 mb-4">
@@ -129,8 +143,9 @@ export function FilterablePieChart() {
   
   return (
     <Card>
-      <CardHeader className="pb-2">
+      <CardHeader className="pb-2 flex flex-row justify-between items-center">
         <CardTitle>Problems by Difficulty</CardTitle>
+        <RefreshButton showText={false} />
       </CardHeader>
       <CardContent>
         <div className="flex space-x-4 mb-4">
