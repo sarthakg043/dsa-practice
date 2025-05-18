@@ -23,27 +23,27 @@ Get the hierarchical structure of the DSA repository.
     ```json
     {
       "name": "Data",
-      "path": "/Users/sarthakgupta/Developer/DSA/Data",
+      "path": "/DSA/Data",
       "type": "directory",
       "children": [
         {
           "name": "NeetCode Blind 75",
-          "path": "/Users/sarthakgupta/Developer/DSA/Data/NeetCode Blind 75",
+          "path": "/DSA/Data/NeetCode Blind 75",
           "type": "directory",
           "children": [
             {
               "name": "Arrays & Hashing",
-              "path": "/Users/sarthakgupta/Developer/DSA/Data/NeetCode Blind 75/Arrays & Hashing",
+              "path": "/DSA/Data/NeetCode Blind 75/Arrays & Hashing",
               "type": "directory",
               "children": [
                 {
                   "name": "contains_duplicate.md",
-                  "path": "/Users/sarthakgupta/Developer/DSA/Data/NeetCode Blind 75/Arrays & Hashing/contains_duplicate.md",
+                  "path": "/DSA/Data/NeetCode Blind 75/Arrays & Hashing/contains_duplicate.md",
                   "type": "file"
                 },
                 {
                   "name": "README.md",
-                  "path": "/Users/sarthakgupta/Developer/DSA/Data/NeetCode Blind 75/Arrays & Hashing/README.md",
+                  "path": "/DSA/Data/NeetCode Blind 75/Arrays & Hashing/README.md",
                   "type": "file"
                 }
               ]
@@ -299,7 +299,7 @@ The API does not currently require authentication.
 To start the server locally:
 
 ```bash
-cd /Users/sarthakgupta/Developer/DSA/backend
+cd /DSA/backend
 node server.js
 ```
 
