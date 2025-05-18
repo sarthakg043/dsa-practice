@@ -59,13 +59,13 @@ export function FileViewer() {
             code: ({node, inline, className, children, ...props}) => {
               const match = /language-(\w+)/.exec(className || '');
               return !inline ? (
-                <pre className="code-block">
+                <pre className="code-block dark:text-gray-600">
                   <code className={match ? `language-${match[1]}` : ''} {...props}>
                     {children}
                   </code>
                 </pre>
               ) : (
-                <code className="inline-code" {...props}>
+                <code className="inline-code dark:text-gray-600" {...props}>
                   {children}
                 </code>
               );
@@ -119,8 +119,8 @@ export function FileViewer() {
         {renderMetadata()}
         <div className="markdown-content">
           {isMarkdown ? renderMarkdown() : (
-            <pre className="bg-gray-100 p-4 rounded-md overflow-x-auto">
-              <code>{content}</code>
+            <pre className="bg-gray-100 dark:bg-gray-800 p-4 rounded-md overflow-x-auto">
+              <code className="dark:text-gray-600">{content}</code>
             </pre>
           )}
         </div>
