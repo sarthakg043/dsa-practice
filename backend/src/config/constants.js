@@ -5,4 +5,4 @@ export const PORT = 3000;
 
 // Paths
 export const BASE_DSA_PATH = path.resolve('/Users/sarthakgupta/Developer/DSA/Data');
-export const STATISTICS_PATH = path.resolve('./statistics.json');
+export const STATISTICS_PATH = path.resolve('./data/statistics.json');
