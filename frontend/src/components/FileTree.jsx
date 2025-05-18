@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { FolderIcon, FileIcon, ChevronRightIcon, ChevronDownIcon } from 'lucide-react';
-import { useRepository } from '@/lib/repository-context';
+import { useRepository } from '@/contexts/repository-context';
 import {
   Collapsible,
   CollapsibleContent,

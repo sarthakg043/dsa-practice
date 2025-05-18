@@ -1,4 +1,4 @@
-import { useRepository } from '@/lib/repository-context';
+import { useRepository } from '@/contexts/repository-context';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
 import { PieChart, Pie, Cell, BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Legend } from 'recharts';

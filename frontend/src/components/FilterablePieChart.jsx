@@ -1,5 +1,5 @@
 import { useState, useMemo, useEffect } from 'react';
-import { useRepository } from '@/lib/repository-context';
+import { useRepository } from '@/contexts/repository-context';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer, Legend } from 'recharts';
 import { RefreshButton } from './RefreshButton';

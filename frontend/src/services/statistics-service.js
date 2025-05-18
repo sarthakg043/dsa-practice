@@ -1,4 +1,4 @@
-import { apiGet, apiPost } from './api-utils';
+import { apiGet, apiPost } from '@/lib/api-utils';
 
 // Initialize an empty statistics object as cache
 let cachedStatistics = null;

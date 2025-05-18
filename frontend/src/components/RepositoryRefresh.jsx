@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
-import { useRepository } from '@/lib/repository-context';
+import { useRepository } from '@/contexts/repository-context';
 import { Button } from '@/components/ui/button';
 import { RefreshCwIcon, CheckCircleIcon, XCircleIcon } from 'lucide-react';
-import { updateProblemStatus } from '@/lib/statistics-service';
+import { updateProblemStatus } from '@/services/statistics-service';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
 
 export function RepositoryRefresh() {

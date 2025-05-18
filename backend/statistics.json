@@ -1,11 +1,11 @@
 {
   "totalProblems": 75,
-  "solvedProblems": 3,
+  "solvedProblems": 2,
   "topicStats": [
     {
       "name": "Arrays & Hashing",
       "total": 9,
-      "solved": 3
+      "solved": 2
     },
     {
       "name": "Two Pointers",
@@ -99,7 +99,7 @@
       {
         "name": "Contains Duplicate",
         "difficulty": "Easy",
-        "solved": true,
+        "solved": false,
         "link": "https://leetcode.com/problems/contains-duplicate/",
         "solutionPath": "./contains_duplicate.md"
       },
@@ -198,5 +198,5 @@
       }
     ]
   },
-  "lastUpdated": "2025-05-17T12:00:00.000Z"
+  "lastUpdated": "2025-05-18T13:02:24.029Z"
 }

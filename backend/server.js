@@ -7,7 +7,7 @@ import {
   buildRepositoryTree, 
   getFileContent,
   parseMarkdownFile
-} from './src/lib/repository.js';
+} from './lib/repository.js';
 
 const app = express();
 const PORT = 3000;

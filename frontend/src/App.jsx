@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from './components/ui/tabs';
-import { RepositoryProvider } from './lib/repository-context';
-import { ThemeProvider } from './lib/theme-context';
+import { RepositoryProvider } from './contexts/repository-context';
+import { ThemeProvider } from './contexts/theme-context';
 import { FileTree } from './components/FileTree';
 import { FileViewer } from './components/FileViewer';
 import { 

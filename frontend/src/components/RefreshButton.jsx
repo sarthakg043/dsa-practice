@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Button } from './ui/button';
 import { RefreshCwIcon } from 'lucide-react';
-import { useRepository } from '@/lib/repository-context';
+import { useRepository } from '@/contexts/repository-context';
 
 export function RefreshButton({showText = true}) {
   const { refreshData, loading } = useRepository();

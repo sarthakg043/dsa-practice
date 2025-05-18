@@ -1,6 +1,6 @@
 import { createContext, useContext, useState, useEffect } from 'react';
-import { getStatistics, fetchStatistics, refreshStatistics } from './statistics-service';
-import { apiGet } from './api-utils';
+import { getStatistics, fetchStatistics, refreshStatistics } from '@/services/statistics-service';
+import { apiGet } from '../lib/api-utils';
 
 // Create context for the repository data
 const RepositoryContext = createContext();
