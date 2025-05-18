@@ -126,7 +126,7 @@ export function FileViewer() {
         </div>
         
         {/* Add problem status updater for solution files */}
-        {isMarkdown && selectedFile.includes('NeetCode Blind 75/') && !selectedFile.endsWith('README.md') && (
+        {false && isMarkdown && selectedFile.includes('NeetCode Blind 75/') && !selectedFile.endsWith('README.md') && (
           <ProblemStatusUpdater 
             problem={{
               name: metadata?.title || selectedFile.split('/').pop().replace('.md', ''),

@@ -32,16 +32,16 @@ export function FileTreeNode({ node, depth = 0 }) {
     return (
       <Collapsible open={isOpen} onOpenChange={setIsOpen} className="w-full">
         <CollapsibleTrigger 
-          className="flex items-center py-1 px-2 w-full hover:bg-gray-100 rounded-md text-left"
+          className="flex items-center py-1 px-2 w-full hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md text-left text-gray-800 dark:text-gray-200"
           style={{ paddingLeft }}
         >
           <span className="mr-1">
             {isOpen ? <ChevronDownIcon size={16} /> : <ChevronRightIcon size={16} />}
           </span>
-          <FolderIcon size={16} className="mr-2 text-blue-500" />
+          <FolderIcon size={16} className="mr-2 text-blue-500 dark:text-blue-400" />
           <span className="truncate">{node.name}</span>
           {node.children?.length > 0 && (
-            <span className="ml-2 text-gray-500 text-xs">({node.children.length})</span>
+            <span className="ml-2 text-gray-500 dark:text-gray-400 text-xs">({node.children.length})</span>
           )}
         </CollapsibleTrigger>
         <CollapsibleContent>
@@ -56,13 +56,13 @@ export function FileTreeNode({ node, depth = 0 }) {
   return (
     <div
       className={cn(
-        "flex items-center py-1 px-2 hover:bg-gray-100 rounded-md cursor-pointer",
-        isSelected && "bg-blue-100 hover:bg-blue-100"
+        "flex items-center py-1 px-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md cursor-pointer text-gray-800 dark:text-gray-200",
+        isSelected && "bg-blue-100 dark:bg-blue-900 hover:bg-blue-100 dark:hover:bg-blue-900"
       )}
       style={{ paddingLeft }}
       onClick={handleClick}
     >
-      <FileIcon size={16} className="mr-2 text-gray-500" />
+      <FileIcon size={16} className="mr-2 text-gray-500 dark:text-gray-400" />
       <span className="truncate">{node.name}</span>
     </div>
   );
@@ -72,7 +72,7 @@ export function FileTree() {
   const { repoTree, loading, error } = useRepository();
   
   if (loading && !repoTree) {
-    return <div className="p-4">Loading repository...</div>;
+    return <div className="p-4 text-gray-700 dark:text-gray-300">Loading repository...</div>;
   }
   
   
@@ -96,12 +96,12 @@ export function FileTree() {
     }
     
     return (
-      <div className="p-4 bg-red-50 border border-red-200 rounded-md">
-        <h3 className="font-bold mb-2 text-red-600">{errorTitle}</h3>
-        <p className="text-sm text-gray-700 mb-3">{errorMessage}</p>
+      <div className="p-4 bg-red-50 dark:bg-red-900/30 border border-red-200 dark:border-red-800 rounded-md">
+        <h3 className="font-bold mb-2 text-red-600 dark:text-red-400">{errorTitle}</h3>
+        <p className="text-sm text-gray-700 dark:text-gray-300 mb-3">{errorMessage}</p>
         
         {errorDetails && (
-          <details className="mb-3 text-xs text-gray-500">
+          <details className="mb-3 text-xs text-gray-500 dark:text-gray-400">
             <summary>Technical details</summary>
             <p className="mt-1">{errorDetails}</p>
             <p className="mt-1 font-mono text-xs overflow-auto">{error}</p>
@@ -110,13 +110,13 @@ export function FileTree() {
         
         <div className="flex space-x-2">
           <button 
-            className="px-3 py-1.5 bg-blue-500 text-white text-sm rounded hover:bg-blue-600 transition-colors"
+            className="px-3 py-1.5 bg-blue-500 text-white text-sm rounded hover:bg-blue-600 dark:bg-blue-600 dark:hover:bg-blue-700 transition-colors"
             onClick={() => window.location.reload()}
           >
             Reload Page
           </button>
           <button
-            className="px-3 py-1.5 bg-gray-200 text-gray-700 text-sm rounded hover:bg-gray-300 transition-colors"
+            className="px-3 py-1.5 bg-gray-200 text-gray-700 text-sm rounded hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600 transition-colors"
             onClick={() => {
               window.localStorage.clear();
               window.location.reload();
@@ -130,12 +130,12 @@ export function FileTree() {
   }
   
   if (!repoTree) {
-    return <div className="p-4">No repository data available</div>;
+    return <div className="p-4 text-gray-700 dark:text-gray-300">No repository data available</div>;
   }
   
   return (
     <div className="p-2 overflow-auto">
-      <h3 className="font-medium mb-2">Repository Files</h3>
+      <h3 className="font-medium mb-2 text-gray-800 dark:text-gray-200">Repository Files</h3>
       <div className="space-y-1">
         <FileTreeNode node={repoTree} />
       </div>
