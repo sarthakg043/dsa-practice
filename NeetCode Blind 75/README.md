@@ -32,7 +32,7 @@ This directory contains my solutions to all 75 problems, organized by topic. Eac
 
 | Topic | Solved | Total | Progress |
 |-------|--------|-------|----------|
-| Arrays & Hashing | 0 | 9 | 0% |
+| Arrays & Hashing | 1 | 9 | 11.11% |
 | Two Pointers | 0 | 5 | 0% |
 | Sliding Window | 0 | 6 | 0% |
 | Stack | 0 | 1 | 0% |

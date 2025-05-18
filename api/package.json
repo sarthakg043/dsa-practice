@@ -1,0 +1,13 @@
+{
+  "name": "dsa-api",
+  "version": "1.0.0",
+  "description": "API for DSA repository tracker",
+  "type": "module",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.21.2"
+  },
+  "engines": {
+    "node": ">=14.x"
+  }
+}

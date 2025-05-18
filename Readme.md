@@ -5,6 +5,31 @@ This repository contains my solutions to various Data Structures and Algorithms 
 ## Repository Structure
 
 - [NeetCode Blind 75](/NeetCode%20Blind%2075/README.md) - Solutions to the NeetCode Blind 75 list of interview questions
+- [Frontend](/frontend/README.md) - Interactive UI to track progress and visualize statistics
+
+## Interactive Dashboard
+
+This repository includes an interactive dashboard to visualize your DSA problem-solving progress. Features include:
+
+- Track completion by topic and difficulty
+- View statistics with interactive charts and filterable pie charts
+- Browse repository contents and solution files
+- Automatic monitoring of your progress as you add new solutions
+
+To launch the dashboard:
+
+```bash
+./start.sh
+```
+
+Then open your browser to http://localhost:5173
+
+## Vercel Deployment
+
+The dashboard is fully deployable to Vercel with serverless API support.
+
+- See [VERCEL_DEPLOYMENT.md](VERCEL_DEPLOYMENT.md) for deployment instructions
+- See [TESTING_GUIDE.md](TESTING_GUIDE.md) for local testing and troubleshooting
 
 ## Problem Sets
 
@@ -29,6 +54,14 @@ The NeetCode Blind 75 section contains solutions to 75 essential coding intervie
 15. [Intervals](/NeetCode%20Blind%2075/Intervals/README.md)
 16. [Math & Geometry](/NeetCode%20Blind%2075/Math%20%26%20Geometry/README.md)
 17. [Bit Manipulation](/NeetCode%20Blind%2075/Bit%20Manipulation/README.md)
+
+## Recent Updates
+
+- Added robust API error handling for JSON parsing issues
+- Implemented serverless API with mock data support for Vercel deployment
+- Created filterable pie charts for topic and status visualization
+- Added comprehensive testing and deployment documentation
+- Fixed the "Unexpected token '<'" error in the file tree sidebar
 
 ## Progress Tracking
 

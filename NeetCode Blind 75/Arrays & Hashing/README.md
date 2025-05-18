@@ -18,8 +18,8 @@ This directory contains solutions to array and hash table problems from the Blin
 
 ## Completion Status
 
-- Completed: 0/9
-- Progress: 0%
+- Completed: 2/9
+- Progress: 11.11%
 
 ## Key Concepts
 
