@@ -172,7 +172,7 @@ export function FilterablePieChart() {
                 label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}
               >
                 {chartData.map((entry, index) => (
-                  <Cell key={`cell-${index}`} fill={DIFFICULTY_COLORS[entry.name] || COLORS[index % COLORS.length]} />
+                  <Cell stroke='none' key={`cell-${index}`} fill={DIFFICULTY_COLORS[entry.name] || COLORS[index % COLORS.length]} />
                 ))}
               </Pie>
               <Tooltip 

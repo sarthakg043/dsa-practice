@@ -177,6 +177,12 @@ export function TopicBarChart() {
               <YAxis type="category" dataKey="name" width={100} tick={{ fontSize: 12 }} />
               <Tooltip 
                 formatter={(value, name) => [value, name === 'total' ? 'Total Problems' : 'Solved Problems']}
+                contentStyle={{
+                  backgroundColor: '#1f2937', // e.g., dark gray
+                  borderRadius: '6px',
+                  border: 'none',
+                  color: '#f9fafb', // light text for dark background
+                }}
               />
               <Legend />
               <Bar dataKey="total" name="Total Problems" fill="#94a3b8" barSize={20} />
