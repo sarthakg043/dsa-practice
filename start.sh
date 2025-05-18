@@ -32,8 +32,8 @@ echo "📂 Root directory: $ROOT_DIR"
 # Start the DSA Repository Tracker
 echo "🚀 Starting DSA Repository Tracker..."
 
-# Change to the frontend directory first
-cd "$ROOT_DIR/frontend"
+# Change to the backend directory first
+cd "$ROOT_DIR/backend"
 echo "👉 Current directory: $(pwd)"
 
 # Check if the node_modules directory exists
@@ -44,7 +44,7 @@ fi
 
 # Start the server in the background
 echo "🌐 Starting the server..."
-node server.js &
+npm run dev &
 SERVER_PID=$!
 
 # Give the server a moment to start
@@ -56,6 +56,16 @@ if curl -s "http://localhost:3000/api/health" > /dev/null; then
   echo "✅ Server is responding correctly"
 else
   echo "⚠️ Server might not be responding, but continuing..."
+fi
+
+# Change to the frontend directory first
+cd "$ROOT_DIR/frontend"
+echo "👉 Current directory: $(pwd)"
+
+# Check if the node_modules directory exists
+if [ ! -d "node_modules" ]; then
+  echo "📦 Installing frontend dependencies..."
+  npm install
 fi
 
 # Run the frontend
