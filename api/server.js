@@ -185,7 +185,7 @@ app.post('/api/statistics', (req, res) => {
 });
 
 // Catch-all for other routes - ensure 404s return JSON
-app.use('*', (req, res) => {
+app.use((req, res) => {
   res.status(404).json({ 
     error: 'Resource not found', 
     path: req.originalUrl,
@@ -215,3 +215,25 @@ app.use((err, req, res, next) => {
 
 // Required for Vercel serverless functions
 export default app;
+
+// Start the server if this file is run directly
+if (import.meta.url === `file://${process.argv[1]}`) {
+  // If PORT is already in use, we'll try another one
+  const startServer = (port = 3000, maxAttempts = 5, attempt = 1) => {
+    const server = app.listen(port, () => {
+      console.log(`Server running on port ${port}`);
+    });
+    
+    server.on('error', (e) => {
+      if (e.code === 'EADDRINUSE' && attempt < maxAttempts) {
+        console.log(`Port ${port} is busy, trying port ${port + 1}`);
+        server.close();
+        startServer(port + 1, maxAttempts, attempt + 1);
+      } else {
+        console.error('Server error:', e);
+      }
+    });
+  };
+  
+  startServer(process.env.PORT || 3000);
+}
