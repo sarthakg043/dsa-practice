@@ -5,7 +5,7 @@ import { RefreshCwIcon, CheckCircleIcon, XCircleIcon } from 'lucide-react';
 import { updateProblemStatus } from '@/services/statistics-service';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
 
-export function RepositoryRefresh() {
+export function RepositoryRefresh({title = "Refresh", showLastUpdated = true}) {
   const { refreshData, loading } = useRepository();
   const [lastRefreshed, setLastRefreshed] = useState(null);
   const [refreshing, setRefreshing] = useState(false);
@@ -30,20 +30,20 @@ export function RepositoryRefresh() {
   }, []);
   
   return (
-    <div className="flex items-center gap-2">
+    <div className="flex flex-wrap items-center gap-2">
       <Button 
         size="sm" 
         variant="outline" 
         onClick={handleRefresh}
         disabled={refreshing || loading}
       >
-        <RefreshCwIcon size={16} className={`mr-1 ${refreshing ? 'animate-spin' : ''}`} />
-        Refresh
+        <RefreshCwIcon size={16} className={`${refreshing ? 'animate-spin' : ''}`} />
+        {title}
       </Button>
-      {lastRefreshed && (
-        <span className="text-xs text-gray-500">
+      { showLastUpdated && lastRefreshed && (
+        <div className="text-xs text-gray-500">
           Last updated: {lastRefreshed.toLocaleTimeString()}
-        </span>
+        </div>
       )}
     </div>
   );
